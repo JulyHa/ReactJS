@@ -24,8 +24,14 @@ class App extends React.Component {
     this.render();
   }
   getData = (val) => {
-    if(this.state.listProduct.find((item)=> {return item.id === val.id})){
-        console.log(1);
+    let index = this.state.listProduct.map((item)=> {return item.id}).indexOf(val.id);
+    let arr = this.state.listProduct;
+    if(index > -1){
+      arr[index] = val;
+        this.setState({
+          listProduct: arr,
+          idEdit: null
+        })
     }else{
       this.setState((state)=>{
         return {
@@ -44,12 +50,20 @@ class App extends React.Component {
       }
     })
   }
+  isEdit=(val)=>{
+    this.setState((state)=>{
+      return{
+        listProduct: state.listProduct,
+        idEdit: val? state.idEdit: null
+      }
+    })
+  }
 
   render(){
 
   return (
     <>
-    <FormProduct product={this.state.idEdit} products={this.state.listProduct} sendData={this.getData} />
+    <FormProduct isEdit={this.isEdit} product={this.state.idEdit} products={this.state.listProduct} sendData={this.getData} />
     <div className="App">
       <table className="table table-striped">
   <thead>

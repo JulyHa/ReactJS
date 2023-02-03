@@ -20,6 +20,7 @@ class FormProduct extends React.Component{
     createNew(){
         this.resetForm();
         document.getElementById('id').value = this.state.id + 1;
+        this.props.isEdit(false);
         this.setState({
             id: this.state.id + 1
         });
@@ -29,6 +30,7 @@ class FormProduct extends React.Component{
         document.getElementById('id').value = ''
         document.getElementById('name').value = ''
         document.getElementById('price').value = ''
+
     }
     
     submitForm(){
@@ -46,7 +48,6 @@ class FormProduct extends React.Component{
     }
     componentDidMount(){
         this.createNew();
-
     }
     render(){
         return(
