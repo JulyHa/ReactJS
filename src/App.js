@@ -1,12 +1,11 @@
 import './App.css';
 import Demo from "./Demo";
+import FComponent from "./FComponent";
 
 function App() {
   return (
    <>
-      <Demo age = {21}>
-
-      </Demo>
+      <FComponent></FComponent>
    </>
   );
 }
