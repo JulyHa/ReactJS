@@ -125,11 +125,11 @@ edit = () => {
 }
 delete = (e) => {
     let choice = window.confirm("Bạn có chắc chắn muốn xóa phần tử này không?");
-    let arr = [...this.status.this]
+    let arr = [...this.state.list]
     if(choice){
         arr.splice(e.target.id, 1)
         this.setState( {
-                list : arr,
+            list : arr,
             inputName:'',
             inputAge:'',
             })
